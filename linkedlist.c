@@ -1,10 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-
-
-
-
 struct node {
 
     int data;
@@ -12,28 +8,41 @@ struct node {
 
 };
 
+
 struct node* head = NULL;
 
 void insert(int val) {
-
     struct node *ptr;
-
     ptr = (struct node*) malloc(1 * sizeof(struct node));
-
     ptr->data = val;
     ptr->next = head;
-
     head = ptr;
 };
 
-int main() {
+int pop() {
+    int val;
+    if (head != NULL) {
+        val = head->data;
+        head = head->next;
+    } else {
+        val = NULL;
+    }
+    return val;
+};
 
-    printf("START");
+void loop() {
+    while (head != NULL) {
+        printf("%d\n", head->data);
+        head = head->next;
+    }
+}
+
+int main() {
+    printf("START\n");
     insert(1);
-    printf("%d", head->data);
-    insert(2);
-    printf("%d", head->data);
-    insert(3);
-    printf("%d", head->data);
-    printf("END");
+    printf("%d\n", pop());
+    printf("%d\n", pop());
+    printf("%d\n", pop());
+    printf("%d\n", pop());
+    printf("END\n");
 };
