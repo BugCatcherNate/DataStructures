@@ -1,12 +1,12 @@
-CC=gcc
+CC=g++
 
 
 format: 
-	astyle -xe linkedlist.c
+	astyle -xe linkedlist.cpp
 
 clean: format
-	rm -f linkedlist.c.orig
+	rm -f linkedlist.cpp.orig
 	rm -f bin/linkedlist
 
 build: clean 
-	$(CC) -g -Wall linkedlist.c -o bin/linkedlist
+	$(CC) -g -Wall linkedlist.cpp -o bin/linkedlist
